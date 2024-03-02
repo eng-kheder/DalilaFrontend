@@ -19,11 +19,21 @@
       <form action="">
         <h1>تسجيل الدخول</h1>
         <div class="input-box">
-          <input type="email" placeholder="البريد الالكتروني" required />
+          <input
+            type="email"
+            name="email1"
+            placeholder="البريد الالكتروني"
+            required
+          />
           <i class="bx bxs-user"></i>
         </div>
         <div class="input-box">
-          <input type="password" placeholder="كلمة المرور" required />
+          <input
+            type="password"
+            name="password1"
+            placeholder="كلمة المرور"
+            required
+          />
           <i class="bx bxs-lock-alt"></i>
         </div>
 
@@ -43,12 +53,51 @@
           <a href="#">هل نسيت كلمة المرور؟</a>
         </div>
 
-        <button type="submit" class="btn">تسجيل الدخول</button>
+        <button type="submit" class="btn" onclick="navFun()">
+          تسجيل الدخول
+        </button>
 
         <div class="register-link">
-          <a href="D:\p\reg\index.html">تسجيل حساب جديد</a>
+          <a href="./reg/first.html">تسجيل حساب جديد</a>
         </div>
       </form>
+
+      <script>
+        const apiUrl = "https://api.example.com/data";
+        let email1 = document.querySelector("#email1").value;
+        let password1 = document.querySelector("#password1").value;
+        const data = {
+          email: email1,
+          password: password1,
+        };
+
+        const requestOptions = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        };
+
+        fetch(apiUrl, requestOptions)
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return response.json();
+          })
+          .then((data) => {
+            outputElement.textContent = JSON.stringify(data, null, 2);
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+
+        function navFun() {
+          window.location.href = "./Home.html";
+          return;
+        }
+      </script>
     </div>
   </body>
 </html>

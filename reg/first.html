@@ -34,9 +34,9 @@
           <div class="input-field">
             <select name="Acount-type" id="Atype">
               <option value="" disabled selected>اختيار نوع الحساب</option>
-              <option value="client">سائح</option>
-              <option value="office">مكتب</option>
-              <option value="guide">مرشد</option>
+              <option value="1">سائح</option>
+              <option value="2">مرشد</option>
+              <option value="3">مكتب</option>
             </select>
             <i class="bx bxs-user-account"></i>
           </div>
@@ -73,12 +73,12 @@
             var e = document.getElementById("Atype");
             var theValue = e.value;
             console.log(theValue);
-            if (value == "client") {
-              window.location.href = "D:\\p\\reg\\client.html";
-            } else if (value == "office") {
-              window.location.href = "D:\\p\\reg\\client.html";
-            } else if (value == "guide") {
-              window.location.href = "D:\\p\\reg\\client.html";
+            if (theValue == "1") {
+              window.location.href = "./client.html";
+            } else if (theValue == "2") {
+              window.location.href = "./guide.html";
+            } else if (theValue == "3") {
+              window.location.href = "./agency.html";
             }
           }
         </script>
